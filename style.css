@@ -33,14 +33,14 @@ input {
     margin-bottom: 2rem;
 }
 
-@media screen and (miax-width: 421px) {
-    .input {
+@media screen and (max-width: 421px) {
+    section .input {
         flex-direction: column;
         width: 90%;
         gap: 15px;
     }
 
-    input {
+    section input {
         width: auto;
     }
 }
@@ -56,3 +56,6 @@ input {
         width: auto;
     }
 }
+
+/*
+why are media query not being applied as expected, the should be row when the screen view size is more tha 420px else they should be on flex-direction: column*/
