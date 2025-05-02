@@ -1,2 +1,2 @@
-# TsPSIT
+# TPSIT
 TPSIT exercises
