@@ -1,0 +1,43 @@
+#calculator {
+    border: solid black 2px;
+    margin: auto;
+    border-radius: 2.5px;
+    background-color: rgb(247, 247, 235);
+    width: 16rem;
+    height: auto;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+button {
+    border: 0.5px solid black;
+    border-radius: 2.5px;
+    height: 4rem;
+    width: 4rem;
+    background-color: azure;
+}
+
+button:hover {
+    background-color: lightgray;
+}
+
+#output {
+    text-align: right;
+    padding-right: 15px;
+    font-size: 45px;
+    line-height: 0;
+}
+
+#expression {
+    padding: 0px 0px 20px 5px;
+    line-height: 0;
+    font-size: 30px;
+}
+
+* {
+    outline-color: red;
+}
