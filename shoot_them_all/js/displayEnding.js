@@ -19,7 +19,7 @@ const loses = () => {
         shootBtn.disabled = true;
         setBtn.disabled = true;
         angleInput.disabled = true;
-        //endAnimation();
+        endAnimation();
 
         setTimeout(() => { //attende l'ultimo colpo sparatoconsole.log('All shots fired');
             level.style.display = 'none';

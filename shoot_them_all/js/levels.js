@@ -67,6 +67,7 @@ const nextLevel = () => {
         displayLevel();
         flagCounter = 0; //resets hit counter for new level
         createLevelTargets();
+        displayShots();
         console.log('Advanced to level', levelNumber);
     } else {
         wins();
@@ -82,8 +83,8 @@ const createLevelTargets = () => {
     targets.length = 0; // clear array before creating new targets
     const targetWidth = 20;
     const targetHeight = 20;
-    const minY = 110; ////sets minimum y
-    const minX = 100; //sets minimum x
+    const minY = 125; ////sets minimum y
+    const minX = 120; //sets minimum x
     const maxX = 670; //sets max x
     const maxY = canvas.height - targetHeight; //sets max y
     
@@ -100,6 +101,6 @@ const displayLevel = () => {
 }
 
 const displayShots = () => {
-    if (loses()) return;
+    if (victoryFlag || loses()) return;
     shots.innerHTML = `${levels[`level${levelNumber}`].shootCounter} shots left.`;
 }

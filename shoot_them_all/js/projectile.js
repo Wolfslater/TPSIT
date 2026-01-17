@@ -3,7 +3,7 @@ const setBtn = document.querySelector(".btn");
 const shootBtn = document.querySelector("input[value='shoot']");
 
 const gravity = 0.4;
-const launchSpeed = 17.6;
+const launchSpeed = 17;
 const maxAngle = 90;
 const minAngle = 10;
 
