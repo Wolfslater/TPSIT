@@ -1,8 +1,9 @@
 //oggetto target
 //contiene le info per generare i target
 //controllo collisioni
-var flagCounter = 0; //può essere utile? //alla fdine serviva :|
-const targets = []; //target creati al momento
+
+var flagCounter = 0; //può essere utile? //alla fdine serviva "\_('_')_/"
+const targets = []; //lista dei target presenti in mappa
 
 class target {
     constructor(x, y, size, height, width, active) {
@@ -33,13 +34,11 @@ class target {
     for (let idx = targets.length - 1; idx >= 0; idx--) {
       const t = targets[idx];
       if (!t.active) continue;
-      const a = ball;
-      const b = t;
       if (
-        a.x < b.x + b.width &&  //checks if the coordinates overlap
-        a.x + a.width > b.x &&
-        a.y < b.y + b.height &&
-        a.y + a.height > b.y
+        ball.x < t.x + t.width &&  //checks if the coordinballtes overlballp
+        ball.x + ball.width > t.x &&
+        ball.y < t.y + t.height &&
+        ball.y + ball.height > t.y
       ) {
         flagCounter++;
         console.log("Hit!", t);

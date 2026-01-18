@@ -33,14 +33,15 @@ class Ball {
 
  drawTrajectoryLine = () => {
     if (!showLine) return;
-
-    const rad = trajectoryAngle * Math.PI / 180;
-    const length = 130;
-
+    
+    const length = 100; //length of the trajectory line
+    const rad = trajectoryAngle * Math.PI / 180; //intendevo questo per calcolare il raggio
+                                                 // non mi riordo come ci sono arrivato però :)
     ctx.beginPath();
     ctx.setLineDash([10, 5]);
-    ctx.moveTo(10, canvas.height - 10);
-    ctx.lineTo(10 + Math.cos(rad) * length, canvas.height - 10 - Math.sin(rad) * length);
+    ctx.moveTo(10, canvas.height - 10); //starting point
+    //trovato un modo più comodo per esprimere la formula che aveva fornito
+    ctx.lineTo(10 + Math.cos(rad) * length, canvas.height - 10 - Math.sin(rad) * length); //end point 
     ctx.strokeStyle = "rgba(0,0,0,0.7)";
     ctx.lineWidth = 2;
     ctx.stroke();

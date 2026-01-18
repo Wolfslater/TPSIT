@@ -32,7 +32,7 @@ const levels = {
         shootCounter: 10
     },
     level6: {
-        targetNumber: 20,
+        targetNumber: 17,
         completeted: false,
         shootCounter: 8
     }
@@ -42,7 +42,7 @@ const currentLevel = () => {
     for (let level in levels) {
         if (!levels[level].completeted) {
             //console.log("Current Level:", level);
-            levelNumber = parseInt(level.replace('level', ''));
+            levelNumber = parseInt(level.replace('level', '')); //extracts level number from string
             return levelNumber;
         }
     } //return levelNumber = levels.level5; //test choosen level
@@ -52,8 +52,8 @@ const setLevelStatus = () => {
     if (targets.length === 0) {
         const lvl = levels[`level${levelNumber}`];
         if (!lvl.completeted) {
-            lvl.completeted = true; //marks current completed level
-            return true; //indicates the level just completed
+            lvl.completeted = true; //marks current lvl as completed level
+            return true; //indicates the lvl just completed
         }
     }
     return false;
@@ -73,7 +73,6 @@ const nextLevel = () => {
         wins();
         level.style.display = 'none';
         shots.style.display = 'none';
-        victoryFlag = true;
 
     }
 }

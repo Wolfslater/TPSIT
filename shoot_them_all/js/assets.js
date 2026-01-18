@@ -1,7 +1,5 @@
 //style canvas
-
 const canvas = document.getElementById("canvas");
-canvas.style.backgroundColor = "aliceBlue"
 canvas.height = 400;
 canvas.width = 700;
 const ctx = canvas.getContext("2d");
@@ -11,3 +9,7 @@ canvas.style.marginBottom = "10px";
 //targets asset
 const birdImage = new Image();
 birdImage.src = "img/bird.png";
+
+//background assset
+const backgroundImage = new Image();
+backgroundImage.src = "img/background.jpg";

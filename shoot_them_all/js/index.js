@@ -7,12 +7,12 @@ const animate = () => {
         currentLevel();
         //createLevelTargets(); un buon modo per dar crushare chorme :)
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
         for (let i of targets) {
             i.checkCollision();
         }
         if (flagCounter < levels[`level${levelNumber}`].targetNumber) {
             //draws currrent target if flag is false
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i of targets) {
                 if (i.active) i.drawTarget(i);
             }

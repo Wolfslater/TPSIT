@@ -19,9 +19,9 @@ const loses = () => {
         shootBtn.disabled = true;
         setBtn.disabled = true;
         angleInput.disabled = true;
-        endAnimation();
 
         setTimeout(() => { //attende l'ultimo colpo sparatoconsole.log('All shots fired');
+            endAnimation();
             level.style.display = 'none';
             shots.style.display = 'none';
             canvas.style.display = 'none';
