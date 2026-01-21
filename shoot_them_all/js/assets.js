@@ -15,9 +15,9 @@ const backgroundImage = new Image();
 backgroundImage.src = "img/background.jpg";
 
 //cannon asset
-const cannonImage = new image();
-cannonImage.src = "img.cannon.jpg"
+const cannonImage = new Image();
+cannonImage.src = "img/cannon.jpg"
 
 //cannonBall aset
-const cannonBallImage = new image();
-cannonBallImage.src = "img.cannonBall.jpg"
+const cannonBallImage = new Image();
+cannonBallImage.src = "img/cannonBall.png"
