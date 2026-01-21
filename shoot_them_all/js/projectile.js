@@ -4,17 +4,39 @@ const shootBtn = document.querySelector("input[value='shoot']");
 
 const gravity = 0.4;
 const launchSpeed = 17;
-const maxAngle = 90;
+const maxAngle = 91;
 const minAngle = 10;
 
 let isShot = false;
 let showLine = true;
 let trajectoryAngle = 45;
 
+class Cannon {
+    constructor() {
+        this.x = -10;
+        this.y = canvas.height - 70;
+        this.radius = 0;
+        this.width = 80;  // diameter for collision detection
+        this.height = 80; // diameter for collision detection
+    }
+
+    drawCannon() {
+            if (cannonImage.complete && cannonImage.naturalWidth !== 0) {
+            ctx.drawImage(cannonImage, this.x, this.y, this.width, this.height);
+        } else {
+        ctx.beginPath();
+        ctx.fillStyle = "rgb(94, 0, 55)";
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+        }
+    }
+}
+
 class Ball {
     constructor() {
-        this.x = 10;
-        this.y = canvas.height - 10;
+        this.x = cannon.x + cannon.width / 2;
+        this.y = cannon.y + cannon.height / 2;
         this.radius = 10;
         this.width = 20;  // diameter for collision detection
         this.height = 20; // diameter for collision detection
@@ -24,24 +46,28 @@ class Ball {
 
 
  drawBall() {
+    if (cannonBallImage.complete && cannonBallImage.naturalWidth !== 0) {
+        ctx.drawImage(cannonBallImage, this.x, this.y - this.height, this.width, this.height);
+    } else {
     ctx.beginPath();
     ctx.fillStyle = "#5e0000ff";
     ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.closePath();
+    }
 }
 
  drawTrajectoryLine = () => {
     if (!showLine) return;
     
     const length = 100; //length of the trajectory line
-    const rad = trajectoryAngle * Math.PI / 180; //intendevo questo per calcolare il raggio
-                                                 // non mi riordo come ci sono arrivato però :)
+    const rad = trajectoryAngle * Math.PI / 180;
+    const startX = cannon.x + cannon.width / 2; // cannon beak x position
+    const startY = cannon.y + cannon.height / 2; // cannon beak y position
     ctx.beginPath();
     ctx.setLineDash([10, 5]);
-    ctx.moveTo(10, canvas.height - 10); //starting point
-    //trovato un modo più comodo per esprimere la formula che aveva fornito
-    ctx.lineTo(10 + Math.cos(rad) * length, canvas.height - 10 - Math.sin(rad) * length); //end point 
+    ctx.moveTo(startX, startY); //starting point
+    ctx.lineTo(startX + Math.cos(rad) * length, startY - Math.sin(rad) * length); //end point 
     ctx.strokeStyle = "rgba(0,0,0,0.7)";
     ctx.lineWidth = 2;
     ctx.stroke();
@@ -49,8 +75,8 @@ class Ball {
 };
 
   angleCorrection = () => {
-    if (trajectoryAngle < minAngle) trajectoryAngle = maxAngle;
-    if (trajectoryAngle > maxAngle) trajectoryAngle = minAngle;
+    if (trajectoryAngle < minAngle) trajectoryAngle = maxAngle - 1;
+    if (trajectoryAngle >= maxAngle) trajectoryAngle = minAngle;
     return angleInput.value = trajectoryAngle;
 }
 
@@ -74,6 +100,7 @@ class Ball {
 }
 
 setBtn.addEventListener("click", () => {
+    cannon.drawCannon();
     trajectoryAngle = Number(angleInput.value);
     showLine = true;
     isShot = false;
@@ -85,8 +112,7 @@ setBtn.addEventListener("click", () => {
 });
 
 shootBtn.addEventListener("click", () => {
-    const rad = trajectoryAngle * Math.PI / 180; //intendevo questo per calcolare il raggio
-                                                 //non mi ricordo come ci sono arrivato però :)
+    const rad = trajectoryAngle * Math.PI / 180;
     levels[`level${levelNumber}`].shootCounter--;
     displayShots(); //display shots left
     showLine = false;
@@ -103,5 +129,6 @@ angleInput.addEventListener("change", () => {
     ball.angleCorrection();
 });
 
+const cannon = new Cannon();
 const ball = new Ball();
 ball.angleCorrection();

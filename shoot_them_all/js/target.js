@@ -35,7 +35,7 @@ class target {
       const t = targets[idx];
       if (!t.active) continue;
       if (
-        ball.x < t.x + t.width &&  //checks if the coordinballtes overlballp
+        ball.x < t.x + t.width &&  //checks if the coordinates overlap
         ball.x + ball.width > t.x &&
         ball.y < t.y + t.height &&
         ball.y + ball.height > t.y

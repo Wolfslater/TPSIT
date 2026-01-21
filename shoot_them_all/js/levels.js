@@ -29,12 +29,12 @@ const levels = {
     level5: {
         targetNumber: 15,
         completeted: false,
-        shootCounter: 10
+        shootCounter: 7
     },
     level6: {
         targetNumber: 17,
         completeted: false,
-        shootCounter: 8
+        shootCounter: 6
     }
 }
 

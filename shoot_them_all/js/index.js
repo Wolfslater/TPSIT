@@ -8,6 +8,7 @@ const animate = () => {
         //createLevelTargets(); un buon modo per dar crushare chorme :)
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        cannon.drawCannon();
         for (let i of targets) {
             i.checkCollision();
         }
@@ -19,7 +20,7 @@ const animate = () => {
         }
         ball.drawTrajectoryLine();
         ball.update(); //updates ball position, checks for walls collisions
-        ball.drawBall();
+        if (isShot) ball.drawBall();
         window.requestAnimationFrame(animate);
     }
 }
