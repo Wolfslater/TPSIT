@@ -107,6 +107,11 @@ const displayLevel = () => {
 }
 
 const displayShots = () => {
+    const lvl = levels[`level${levelNumber}`];
+    if (!lvl) return;
+    if (typeof lvl.shootCounter === 'number' && lvl.shootCounter < 0) {
+        lvl.shootCounter = 0;
+    }
+    shots.innerHTML = `${lvl.shootCounter} shots left.`;
     if (victoryFlag || loses()) return;
-    shots.innerHTML = `${levels[`level${levelNumber}`].shootCounter} shots left.`;
 }
