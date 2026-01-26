@@ -82,7 +82,7 @@ const createLevelTargets = () => {
     targets.length = 0; // clear array before creating new targets
     const targetWidth = 20;
     const targetHeight = 20;
-    const minY = 125; ////sets minimum y
+    const minY = 135; ////sets minimum y
     const minX = 120; //sets minimum x
     const maxX = 670; //sets max x
     const maxY = canvas.height - targetHeight; //sets max y

@@ -14,8 +14,10 @@ const wins = () => {
 }
 
 const loses = () => {
-    if (victoryFlag) return;
+    if (victoryFlag ) return;
+    if (levels[`level${levelNumber}`].shootCounter >= 0 && !levels[`level${levelNumber}`].completeted) return;
     if (levels[`level${levelNumber}`].shootCounter <= 0) {
+        console.log('No shots left');
         shootBtn.disabled = true;
         setBtn.disabled = true;
         angleInput.disabled = true;

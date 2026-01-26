@@ -39,7 +39,7 @@ class Ball {
         this.y = cannon.y + cannon.height / 2;
         this.radius = 10;
         this.width = 20;  // diameter for collision detection
-        this.height = 20; // diameter for collision detection
+        this.height = 24; // diameter for collision detection
         this.speedx = 0;
         this.speedy = 0;
     }
