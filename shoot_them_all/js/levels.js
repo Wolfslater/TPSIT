@@ -52,8 +52,15 @@ const setLevelStatus = () => {
     if (targets.length === 0) {
         const lvl = levels[`level${levelNumber}`];
         if (!lvl.completeted) {
-            lvl.completeted = true; //marks current lvl as completed level
-            return true; //indicates the lvl just completed
+            lvl.completeted = true;
+            if (typeof window.lossTimeoutId !== 'undefined' && window.lossTimeoutId) {
+                clearTimeout(window.lossTimeoutId);
+                window.lossTimeoutId = null;
+                angleInput.disabled = false;
+                shootBtn.disabled = false;
+                setBtn.disabled = false;
+            }
+            return true;
         }
     }
     return false;
