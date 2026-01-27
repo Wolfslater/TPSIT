@@ -91,7 +91,7 @@ const createLevelTargets = () => {
     const targetHeight = 20;
     const minY = 135; ////sets minimum y
     const minX = 120; //sets minimum x
-    const maxX = 670; //sets max x
+    const maxX = 650; //sets max x
     const maxY = canvas.height - targetHeight; //sets max y
     
     for (let i = levels[`level${levelNumber}`].targetNumber; i > 0; i--) {
